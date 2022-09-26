@@ -2,11 +2,11 @@ import numpy as np
 from utilities import plotArrayValues, powerset
 
 TOTAL = 10000
-MAX_MOVEMENTS = 24
+MAX_MOVEMENTS = 36
 coincidences = np.zeros(MAX_MOVEMENTS)
 
 for i in range(TOTAL):
-    randnums = np.random.randint(1,7,4)
+    randnums = np.random.randint(1,7,6)
     alreadyCounted = np.zeros(MAX_MOVEMENTS)
 
     # Sum of elements
@@ -16,11 +16,17 @@ for i in range(TOTAL):
         alreadyCounted[sumFirstRow - 1] = 1
 
     if randnums[0] == randnums[1]:
-        for subset in powerset(randnums):
+        for subset in powerset(randnums[:4]):
             partialSum = np.sum(subset)
             if alreadyCounted[partialSum - 1] == 0:
                 coincidences[partialSum - 1] += 1
                 alreadyCounted[partialSum - 1] = 1
+        if randnums[2] == randnums[3]:
+            for subset in powerset(randnums):
+                partialSum = np.sum(subset)
+                if alreadyCounted[partialSum - 1] == 0:
+                    coincidences[partialSum - 1] += 1
+                    alreadyCounted[partialSum - 1] = 1
 
     # Each individual element
     for index, n in enumerate(coincidences):
@@ -30,11 +36,6 @@ for i in range(TOTAL):
         if randnums[0] - 1 == index or randnums[1] - 1 == index:
             coincidences[index] += 1
             alreadyCounted[index] = 1
-        ''' # This is already covered by the sum of subsets
-        if randnums[0] == randnums[1] and (randnums[2] - 1 == index or randnums[3] - 1 == index):
-            coincidences[index] += 1
-            alreadyCounted[index] = 1
-        '''
 
 # Calculate the probabilities
 probabilities = coincidences / TOTAL
