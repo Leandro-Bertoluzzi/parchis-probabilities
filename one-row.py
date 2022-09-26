@@ -2,7 +2,8 @@ import numpy as np
 from utilities import plotArrayValues
 
 TOTAL = 10000
-coincidences = np.zeros(12)
+MAX_MOVEMENTS = 12
+coincidences = np.zeros(MAX_MOVEMENTS)
 
 for i in range(TOTAL):
     randnums = np.random.randint(1,7,2)
