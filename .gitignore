@@ -1,0 +1,12 @@
+# We ignore the VS Code settings and stuff
+.vscode/*
+
+# Dynamically generated files
+__pycache__
+.cache
+.bash_history
+*.png
+
+# Notes
+notes.txt
+todo.txt
