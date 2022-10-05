@@ -52,9 +52,20 @@ $ git clone https://github.com/Leandro-Bertoluzzi/parchis-probabilities
 # Access
 $ cd parchis-probabilities
 
+# (Optional, but recommended) Create a virtual environment
+# (Option 1) With Python's venv
+python -m venv venv
+pip install -r requirements.txt
+
+# (Option 2) With Conda
+conda env create -f environment.yml
+conda activate parchis
+
 # Run a script
 $ python one-row.py
 ```
+
+If you chose to create the virtual environment using venv, you shall activate it following the instructions according to your OS in [Official venv docs](https://docs.python.org/3.9/library/venv.html).
 
 ## :memo: License ##
 
