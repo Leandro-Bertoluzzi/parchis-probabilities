@@ -1,5 +1,5 @@
 import numpy as np
-from utilities import plotArrayValues, powerset
+from helpers.utilities import plotArrayValues, powerset
 
 # Edit this variable
 MAX_ROWS = 5

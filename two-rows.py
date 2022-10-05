@@ -1,5 +1,5 @@
 import numpy as np
-from utilities import plotArrayValues, powerset
+from helpers.utilities import plotArrayValues, powerset
 
 TOTAL = 10000
 MAX_MOVEMENTS = 24
